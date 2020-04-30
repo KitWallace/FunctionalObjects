@@ -1,0 +1,1459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presets>
+    <preset>
+        <title>Lissajous Figures</title>
+        <description>
+            <div>Formed by the combination of two sinusoidal functions, one along the X axis,  the other along the Y Axis.
+            </div>
+        </description>
+        <scale>10</scale>
+        <param>
+            <name>Fx</name>
+            <title>X Frequency</title>
+            <min>0</min>
+            <max>20</max>
+            <default>6</default>
+        </param>
+        <param>
+            <name>Ax</name>
+            <title>X Amplitude</title>
+            <min>0</min>
+            <max>20</max>
+            <default>10</default>
+        </param>
+        <param>
+            <name>Px</name>
+            <title>X Phase</title>
+            <min>0</min>
+            <max>180</max>
+            <default>39</default>
+        </param>
+        <param>
+            <name>Fy</name>
+            <title>Y Frequecny</title>
+            <min>0</min>
+            <max>20</max>
+            <default>7</default>
+        </param>
+        <param>
+            <name>Ay</name>
+            <title>Y Amplitude</title>
+            <min>0</min>
+            <max>20</max>
+            <default>10</default>
+        </param>
+        <function>
+            function fn(t,p,scale) { 
+            var X=scale*p[1]*(cos(p[0]*t + p[2]));
+            var Y=scale*p[4]*(cos(p[3]*t));
+            return [round(X,5),round(Y,5)]; 
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Torus knot</title>
+        <description>
+            <div/>
+        </description>
+        <scale>10</scale>
+        <param>
+            <name>p</name>
+            <title>p</title>
+            <min>0</min>
+            <max>20</max>
+            <default>2</default>
+        </param>
+        <param>
+            <name>q</name>
+            <title>q</title>
+            <min>0</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>d</name>
+            <title>d * 10</title>
+            <min>-100</min>
+            <max>100</max>
+            <default>2</default>
+        </param>
+        <function>
+            function fn(t,p,scale) { 
+            var r= cos(p[1]*t)+p[2]/10;
+            var X=scale*r*cos(p[0]*t);
+            var Y=scale*r*sin(p[0]*t);
+            return [round(X,5),round(Y,5)]; 
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Fourier 3 Term</title>
+        <description>
+            <div>
+         The motion of three linked arms, the parameters determining the rate of rotation, 
+        the length and phase of each arm. More in this <a href="http://kitwallace.tumblr.com/post/166884866149/engare-and-its-patterns">blog post</a>
+            </div>
+        </description>
+        <param>
+            <name>R1</name>
+            <title>Frequency 1</title>
+            <min>-20</min>
+            <max>20</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>A1</name>
+            <title>Amplitude 1</title>
+            <min>-50</min>
+            <max>50</max>
+            <default>20</default>
+        </param>
+        <param>
+            <name>P1</name>
+            <title>Phase 1</title>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>R2</name>
+            <title>Frequency 2</title>
+            <min>-20</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>A2</name>
+            <title>Amplitude 2</title>
+            <min>-50</min>
+            <max>50</max>
+            <default>40</default>
+        </param>
+        <param>
+            <name>P2</name>
+            <itle>Phase 2</itle>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>R3</name>
+            <title>Frequency 3</title>
+            <min>0</min>
+            <max>100</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>A3</name>
+            <title>Amplitude 3</title>
+            <min>-50</min>
+            <max>50</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>P3</name>
+            <title>Phase 3</title>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+        </param>
+        <function>
+            function fn(t,p,scale) {   
+            X=scale*(p[1]*cos(p[0]*t +p[2])+p[4]*cos(p[3]*t+p[5])+p[7]*cos(p[6]*t+p[8]));
+            Y=scale*(p[1]*sin(p[0]*t +p[2])+p[4]*sin(p[3]*t+p[5])+p[7]*sin(p[6]*t+p[8]));
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Fourier 3 Term Relative</title>
+        <description>
+            <div>
+        Like the 3 Term Fourier function but rotations are relative to the previous term, so behaviour is more intuitive.
+        </div>
+        </description>
+        <param>
+            <name>R1</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>A1</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>80</default>
+        </param>
+        <param>
+            <name>P1</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>R2</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>-6</default>
+        </param>
+        <param>
+            <name>A2</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>P2</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>R3</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>30</default>
+        </param>
+        <param>
+            <name>A3</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>22</default>
+        </param>
+        <param>
+            <name>P3</name>
+            <min>0</min>
+            <max>180</max>
+            <default>90</default>
+        </param>
+        <function>
+            function fn(t,p,scale) {  
+            r1=p[0];
+            r2=p[3]+r1;
+            r3=p[6]+r2;
+            X=scale*(p[1]*cos(r1*t +p[2])+p[4]*cos(r2*t+p[5])+p[7]*cos(r3*t+p[8]));
+            Y=scale*(p[1]*sin(r1*t +p[2])+p[4]*sin(r2*t+p[5])+p[7]*sin(r3*t+p[8]));
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Fourier 3 Term Sin/Cos</title>
+        <description>
+            <div>Here the coefficients for the sin and cosine series are different, 
+        allowing some weird curves which are generalisations of Lissajous figures.
+        </div>
+        </description>
+        <param>
+            <name>S1</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>A1</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>20</default>
+        </param>
+        <param>
+            <name>S2</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>A2</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>40</default>
+        </param>
+        <param>
+            <name>S3</name>
+            <min>0</min>
+            <max>100</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>A3</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>C1</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>B1</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>20</default>
+        </param>
+        <param>
+            <name>C2</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>B2</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>40</default>
+        </param>
+        <param>
+            <name>C3</name>
+            <min>0</min>
+            <max>100</max>
+            <default>0</default>
+        </param>
+        <param>
+            <name>B3</name>
+            <min>-50</min>
+            <max>50</max>
+            <default>0</default>
+        </param>
+        <function>
+            function fn(t,p,scale) {   
+            X=scale*(p[1]*sin(p[0]*t)+p[3]*sin(p[2]*t)+p[5]*sin(p[4]*t));
+            Y=scale*(p[7]*cos(p[6]*t)+p[9]*cos(p[8]*t)+p[11]*cos(p[10]*t));
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Rose curves</title>
+        <description>
+            <div>Sinuisodal curves plotted in polar coordinates. see <a href="https://en.wikipedia.org/wiki/Rose_%28mathematics%29">Wikipedia</a>
+                  with additional r offset.
+
+        </div>
+        </description>
+        <param>
+            <name>a</name>
+            <min>1</min>
+            <max>100</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>1</min>
+            <max>100</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>c</name>
+            <min>0</min>
+            <max>2</max>
+            <step>0.01</step>
+            <default>0</default>
+        </param>
+        <scale>100</scale>
+        <function>
+            function fn(t,p,scale) {  
+            r= scale*(p[2] + cos(p[0]/p[1]*t ));
+            X=r*cos(t);
+            Y=r*sin(t);
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Rose curve decay</title>
+        <description>
+            <div>Rose curves with decay - curves are no longer closed. Step size defaults to 1 to avoid stack overflow.
+
+        </div>
+        </description>
+        <stepsize>1</stepsize>
+        <param>
+            <name>a</name>
+            <min>1</min>
+            <max>100</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>1</min>
+            <max>100</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>half-life</name>
+            <min>0</min>
+            <max>100</max>
+            <step>1</step>
+            <default>50</default>
+        </param>
+        <scale>100</scale>
+        <maxcycles>20</maxcycles>
+        <function>
+            function fn(t,p,scale) {  
+            r= scale*cos(p[0]/p[1]*t) ;
+            r= p[2]==0 ? r : r*Math.exp(-t/360/p[2]);
+            X=r*cos(t);
+            Y=r*sin(t);
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Wikipedia -name unknown</title>
+        <description>
+            <div>The second function in <a href="£https://en.wikipedia.org/wiki/Parametric_equation#Some_sophisticated_functions">sophisticated functions</a> with an added phase parameter. </div>
+        </description>
+        <param>
+            <name>a</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>00</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>j</name>
+            <min>1</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>c</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>d</name>
+            <min>1</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>k</name>
+            <min>1</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>p</name>
+            <min>0</min>
+            <max>180</max>
+            <default>127</default>
+        </param>
+        <scale>100</scale>
+        <function>
+            function fn(t,p,scale) {  
+            X=scale*(cos(p[0]*t) - Math.pow(cos(p[1]*t+p[6]),p[2]))
+            Y=scale*(sin(p[3]*t) - Math.pow(sin(p[4]*t),p[5]))
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Wikipedia -name unknown-reduced</title>
+        <description>
+            <div>The second function in <a href="£https://en.wikipedia.org/wiki/Parametric_equation#Some_sophisticated_functions">sophisticated functions</a> with an added phase parameter and equal amplitudes. </div>
+        </description>
+        <param>
+            <name>a</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>00</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>j</name>
+            <min>1</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>k</name>
+            <min>1</min>
+            <max>20</max>
+            <default>3</default>
+        </param>
+        <param>
+            <name>p</name>
+            <min>0</min>
+            <max>180</max>
+            <default>127</default>
+        </param>
+        <scale>100</scale>
+        <function>
+            function fn(t,p,scale) {  
+            X=scale*(cos(p[0]*t) - Math.pow(cos(p[1]*t+p[4]),p[2]))
+            Y=scale*(sin(p[0]*t) - Math.pow(sin(p[1]*t),p[3]))
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Lame curves</title>
+        <description>
+            <div>These curves are generalisations of the equation for a circle 
+           r<sup>2</sup>=x<sup>2</sup>+y<sup>2</sup>
+           when the power 2 is varied.  
+           Adjust M and N to change this parameter, a and b for the x and y axis scales.
+           </div>
+        </description>
+        <scale>10</scale>
+        <param>
+            <name>N</name>
+            <min>0</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>M</name>
+            <min>0</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>a</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>5</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>5</default>
+        </param>
+        <maxcycles>1</maxcycles>
+        <function>
+            function fn(t,p,scale) {            
+            X=scale*Math.pow(Math.abs(cos(t)),p[0]/p[1]) * p[2] * sgn(cos(t) /10);
+            Y=scale*Math.pow(Math.abs(sin(t)),p[0]/p[1]) * p[3] * sgn(sin(t) /10);
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Lame spiral</title>
+        <description>
+            <div>This is a spiral based on  curves are generalisations of the equation for a circle 
+           r<sup>2</sup>=x<sup>2</sup>+y<sup>2</sup>
+           when the power 2 is varied.  
+        a and b for the x and y axis scales.
+           </div>
+        </description>
+        <scale>10</scale>
+        <maxcycles>10</maxcycles>
+        <param>
+            <name>a</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>5</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>5</default>
+        </param>
+        <param>
+            <name>k</name>
+            <min>1</min>
+            <max>520</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>l</name>
+            <min>1</min>
+            <max>20</max>
+            <default>1</default>
+        </param>
+        <function>
+            function fn(t,p,scale) {   
+            r=p[2]* Math.exp(-p[3]*t/3600);
+            X=scale*Math.pow(Math.abs(cos(t)),r) * p[0] * sgn(cos(t) /10);
+            Y=scale*Math.pow(Math.abs(sin(t)),r) * p[1] * sgn(sin(t) /10);
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Heart Equation</title>
+        <description>
+            <div>One of a number of heart-shaped curves</div>
+        </description>
+        <scale>5</scale>
+        <param>
+            <name>a</name>
+            <min>0</min>
+            <max>20</max>
+            <default>16</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>-20</min>
+            <max>20</max>
+            <default>13</default>
+        </param>
+        <param>
+            <name>c</name>
+            <min>-10</min>
+            <max>10</max>
+            <default>-5</default>
+        </param>
+        <param>
+            <name>d</name>
+            <min>-10</min>
+            <max>10</max>
+            <default>-2</default>
+        </param>
+        <param>
+            <name>e</name>
+            <min>-10</min>
+            <max>10</max>
+            <default>-1</default>
+        </param>
+        <function>
+            function fn(t,p,scale) {            
+            X=scale*p[0]*Math.pow(sin(t),3);
+            Y=scale*(p[1]*cos(t)+ p[2]*cos(2*t)+ p[3]*cos(3*t) + p[4]*cos(4*t))
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Archimedean Spiral</title>
+        <description>
+            <div>Check open-ended when printing</div>
+        </description>
+        <scale>2</scale>
+        <maxcycles>1</maxcycles>
+        <param>
+            <name>R</name>
+            <title>Revolutions</title>
+            <min>1</min>
+            <max>100</max>
+            <default>10</default>
+        </param>
+        <param>
+            <name>a</name>
+            <min>1</min>
+            <max>100</max>
+            <default>1</default>
+        </param>
+        <function>
+            function fn(t,p,scale) { 
+            theta = t*p[0];
+            r= theta*(p[1])/100;
+            X= scale*r*sin(theta);
+            Y= scale*r*cos(theta);
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Desmos 1</title>
+        <description>
+            <div>from a desmo example</div>
+        </description>
+        <param>
+            <name>k</name>
+            <min>1</min>
+            <max>100</max>
+            <default>10</default>
+        </param>
+        <param>
+            <name>m</name>
+            <min>1</min>
+            <max>100</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>p</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+        </param>
+        <scale>150</scale>
+        <function>
+            function fn(t,p,scale) { 
+            rad=180/3.14159;
+            T=t;
+            X= scale*sin(p[0]*T)*cos(cos(p[1]*T)*rad);
+            Y= scale*cos(p[0]*T)*cos(p[0]*T)*sin(sin(p[1]*T)*rad+p[2]);
+            return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Epicyclic</title>
+        <description>
+            <div/>
+        </description>
+        <param>
+            <name>a</name>
+            <min>1</min>
+            <max>100</max>
+            <default>10</default>
+        </param>
+        <param>
+            <name>b</name>
+            <min>1</min>
+            <max>100</max>
+            <default>1</default>
+        </param>
+        <param>
+            <name>p</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+        </param>
+        <scale>2</scale>
+        <function>
+            function fn(t,p,scale) { 
+ 
+            X= scale*((p[0]+p[1])*cos(t + p[2])- p[1]*cos((p[0]/p[1] + 1)*t ));
+            Y= scale*((p[0]+p[1])*sin(t + p[2])- p[1]*sin((p[0]/p[1] + 1)*t + p[2]));
+             return [round(X,5),round(Y,5)];   
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Lemniscate</title>
+        <description>
+            <div>Bernoulli's lemniscate   (x^2+y^2)^2=2c^2(x^2-y^2). 
+            </div>
+        </description>
+        <scale>20</scale>
+        <param>
+            <name>A</name>
+            <title>X Scale</title>
+            <min>0</min>
+            <max>20</max>
+            <default>10</default>
+        </param>
+        <param>
+            <name>B</name>
+            <title>Y Scale</title>
+            <min>0</min>
+            <max>20</max>
+            <default>10</default>
+        </param>
+        <param>
+            <name>P</name>
+            <title>P</title>
+            <min>0</min>
+            <max>20</max>
+            <default>2</default>
+        </param>
+        <function>
+            function fn(t,p,scale) { 
+            var X=scale*p[0]*cos(t)/(1 + Math.pow(sin(t),p[2]));
+            var Y=scale*p[1]*sin(t)*cos(t)/(1 + Math.pow(sin(t),p[2]));
+            return [round(X,5),round(Y,5)]; 
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Cassini ovals</title>
+        <description>
+            <div/>
+        </description>
+        <scale>2</scale>
+        <param>
+            <name>a</name>
+            <title>a</title>
+            <min>0</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <param>
+            <name>b</name>
+            <title>b</title>
+            <min>0</min>
+            <max>100</max>
+            <default>50</default>
+        </param>
+        <function>
+            function fn(t,p,scale) { 
+            var r2 = Math.pow(p[0],2)*Math.abs(cos(2*t) + Math.sqrt(Math.pow(p[1]/p[0],4) - Math.pow(sin(2*t),2)));
+            var r= Math.sqrt(r2);
+            var X=scale* r *sin(t);
+            var Y=scale* r *cos(t);
+            return [round(X,5),round(Y,5)]; 
+            } 
+        </function>
+    </preset>
+    <preset>
+        <title>Double Linkage</title>
+        <description>
+            <div>Mechanism in which an arm C carrying a pen rotates around   a pivot which joins two links, one attached to rotating arm A,   the other to rotating arm B. Care needed to ensure mechanism is viable    2*AR + AB + 2*BR &lt; Al + Bl<r/>
+                and that the linkage remains valid.
+            </div>
+        </description>
+        <scale>20</scale>
+        <stepsize>1</stepsize>
+        <param>
+            <name>AR</name>
+            <min>0</min>
+            <max>20</max>
+            <default>5</default>
+            <title>Radius of Arm A</title>
+        </param>
+        <param>
+            <name>Ar</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>1</default>
+            <title>Rate of rotation of Arm A</title>
+        </param>
+        <param>
+            <name>Al</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Length of link from end of Arm A</title>
+        </param>
+        <param>
+            <name>Ap</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>Phase angle of Arm A</title>
+        </param>
+        <param>
+            <name>BR</name>
+            <min>0</min>
+            <max>20</max>
+            <default>5</default>
+            <title>Length of Arm B</title>
+        </param>
+        <param>
+            <name>Br</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>-1</default>
+            <title>Rate of rotation of Arm B</title>
+        </param>
+        <param>
+            <name>Bl</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Length of Link from end of Arm B</title>
+        </param>
+        <param>
+            <name>Bp</name>
+            <min>0</min>
+            <max>180</max>
+            <default>180</default>
+            <title>Phase angle of Arm B</title>
+        </param>
+        <param>
+            <name>AB</name>
+            <min>0</min>
+            <max>100</max>
+            <default>5</default>
+            <title>Distance between the ends of the two rotating arms.</title>
+        </param>
+        <param>
+            <name>CR</name>
+            <min>0</min>
+            <max>100</max>
+            <default>5</default>
+            <title>Length of Pen Arm. Pen Arm revolves about the junction of the two links</title>
+        </param>
+        <param>
+            <name>Cr</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>0</default>
+            <title>Rate of rotation of Pen Arm</title>
+        </param>
+        <param>
+            <name>Cp</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>Phase angle of Pen Arm</title>
+        </param>
+        <function>
+
+    function fn(t,p,scale) {  
+           if (!positive( (p[2]+p[6]) - (2*p[0]+p[8]+2*p[4])))
+               {alert("mechanism impossible: "+ "links: "+ (p[2]+p[6])+ " less than base: "+(2*p[0]+p[8]+2*p[4])); throw("mechanism impossible")}
+            d=p[8]+p[0]+p[4];
+            Ax=p[0]*cos(t*p[1]+p[3]);Ay=p[0]*sin(t*p[1]+p[3]);
+            Bx=p[4]*cos(t*p[5]+p[7]);By=p[4]*sin(t*p[5]+p[7]);
+            dx=d-(Bx+Ax); dy=By-Ay;
+            Cl=Math.sqrt(dx*dx+dy*dy);
+            AB=Math.atan2(dy,dx)*180/Math.PI;
+           if (!triangle(Cl,p[2],p[6])) {alert("not a triangle: " + Cl +" "+p[2]+" "+p[6]); throw("not a triangle");}
+            Aa=Math.acos((p[2]*p[2] + Cl*Cl -p[6]*p[6]) /(2*Cl*p[2])) *180/Math.PI;
+            AC=(Aa+AB);
+            Px=p[2]*cos(AC);Py=p[2]*sin(AC);
+            Cx=p[9]*cos(t*p[10]+p[11]); Cy=p[9]*sin(t*p[10]+p[11]);
+            X= Px+Ax+Cx;Y= Py+Ay+Cy;
+//            console.log(d,Cl,p[2],p[6],triangle(Cl,p[2],p[6]),)
+            return [scale*X,scale*Y]
+            } 
+        </function>
+        <maxcycles>1</maxcycles>
+    </preset><!--    <preset>
+        <title>Test</title>
+        <description>
+            <div>just for testing stuff</div>
+        </description>
+        <scale>30</scale>
+        <stepsize>1</stepsize>
+        <param>
+            <name>A</name>
+            <min>0</min>
+            <max>20</max>
+            <default>5</default>
+        </param>
+        <param>
+            <name>B</name>
+            <min>0</min>
+            <max>20</max>
+            <default>10</default>
+        </param>
+        <param>
+            <name>C</name>
+            <min>0</min>
+            <max>20</max>
+            <default>10</default>
+        </param>
+      <function>
+          function fn(t,p,scale) { 
+          t= triangle(p[0],p[1],p[2]);
+          alert([t,p[0],p[1],p[2]].join(" "));
+          throw("stop");
+          }
+          </function>
+          </preset>
+          -->
+    <preset>
+        <title>Double Linkage V2</title>
+        <description>
+            <div>Mechanism in which an arm C carrying a pen rotates around   a pivot D which joins two links, one attached to rotating arm A,   the other to rotating arm B. Care needed to ensure mechanism is viable     AR + AB + BR &lt; AD + BD<r/>
+                and that the linkage remains valid.
+            </div>
+        </description>
+        <scale>20</scale>
+        <stepsize>1</stepsize>
+        <param>
+            <name>AR</name>
+            <min>0</min>
+            <max>20</max>
+            <default>5</default>
+            <step>0.1</step>
+            <title>Radius of Arm A</title>
+        </param>
+        <param>
+            <name>Ar</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>1</default>
+            <title>Rate of rotation of Arm A</title>
+        </param>
+        <param>
+            <name>AD</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Length of link from end of Arm A to pivot D</title>
+        </param>
+        <param>
+            <name>Ap</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>Phase angle of Arm A</title>
+        </param>
+        <param>
+            <name>BR</name>
+            <min>0</min>
+            <max>20</max>
+            <default>5</default>
+            <title>Length of Arm B</title>
+        </param>
+        <param>
+            <name>Br</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>-1</default>
+            <title>Rate of rotation of Arm B</title>
+        </param>
+        <param>
+            <name>BD</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Length of Link from end of Arm B to pivot D</title>
+        </param>
+        <param>
+            <name>Bp</name>
+            <min>0</min>
+            <max>180</max>
+            <default>180</default>
+            <title>Phase angle of Arm B</title>
+        </param>
+        <param>
+            <name>AB</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Distance between A and B.</title>
+        </param>
+        <param>
+            <name>CR</name>
+            <min>0</min>
+            <max>100</max>
+            <default>5</default>
+            <title>Length of Pen Arm.  Centre lies at the junction of the two links at D</title>
+        </param>
+        <param>
+            <name>Cr</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>0</default>
+            <title>Rate of rotation of Pen Arm</title>
+        </param>
+        <param>
+            <name>Cp</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>Phase angle of Pen Arm</title>
+        </param>
+        <param>
+            <name>check</name>
+            <min>0</min>
+            <max>1</max>
+            <default>0</default>
+            <title>check for validity</title>
+        </param>
+        <function>
+    function fn(t,p,scale) {  
+           if (p[12]==1 )   
+               if(!triangle (p[2],p[6],p[8]+p[0]+p[4]))  
+                  if(!triangle (p[2],p[6],p[8]-p[0]-p[4]))
+              
+                   {alert("mechanism invalid"); throw("mechanism impossible")}
+            d=p[8]; 
+            Ax=p[0]*cos(t*p[1]+p[3]);Ay=p[0]*sin(t*p[1]+p[3]);
+            Bx=p[4]*cos(t*p[5]+p[7]);By=p[4]*sin(t*p[5]+p[7]);
+            dx=d-(Bx+Ax); dy=By-Ay;
+            Cl=Math.sqrt(dx*dx+dy*dy);
+            AB=Math.atan2(dy,dx)*180/Math.PI;
+           if (p[12]==1) 
+              if(!triangle(Cl,p[2],p[6])) {alert("not a triangle: " + Cl +" "+p[2]+" "+p[6]); throw("not a triangle");}
+            Aa=(p[2]*p[2] + Cl*Cl -p[6]*p[6]) /(2*Cl*p[2]) *180/Math.PI;
+            AC=(Aa+AB);
+            Px=p[2]*cos(AC);Py=p[2]*sin(AC);
+            Cx=p[9]*cos(t*p[10]+p[11]); Cy=p[9]*sin(t*p[10]+p[11]);
+            X= Px+Ax+Cx; Y= Py+Ay+Cy;
+//            console.log(d,Cl,p[2],p[6],triangle(Cl,p[2],p[6]),)
+            return [scale*X,scale*Y]
+            }         
+        </function>
+        <maxcycles>1</maxcycles>
+    </preset>
+    <preset>
+        <title>Double Linkage V3</title>
+        <description>
+            <div>Mechanism in which an arm C carrying a pen rotates around   a pivot D which joins two links, one attached to rotating arm A,   the other to rotating arm B. Care needed to ensure mechanism is viable     AR + AB + BR &lt; AD + BD<r/>
+                and that the linkage remains valid. In this version, AR rotates counter-clockwise, BR clockwise
+            </div>
+        </description>
+        <scale>20</scale>
+        <stepsize>1</stepsize>
+        <param>
+            <name>AR</name>
+            <min>0</min>
+            <max>20</max>
+            <default>5</default>
+            <title>Radius of Arm A</title>
+        </param>
+        <param>
+            <name>Ar</name>
+            <min>-100</min>
+            <max>100</max>
+            <step>0.1</step>
+            <default>1</default>
+            <title>Rate of rotation of Arm A - Anti-clockwise</title>
+        </param>
+        <param>
+            <name>AD</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Length of link from end of Arm A to pivot D</title>
+        </param>
+        <param>
+            <name>Ap</name>
+            <min>0</min>
+            <max>360</max>
+            <default>0</default>
+            <title>Phase angle of Arm A</title>
+        </param>
+        <param>
+            <name>BR</name>
+            <min>0</min>
+            <max>20</max>
+            <default>5</default>
+            <title>Length of Arm B</title>
+        </param>
+        <param>
+            <name>Br</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>1</default>
+            <title>Rate of rotation of Arm B - clockwise</title>
+        </param>
+        <param>
+            <name>BD</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Length of Link from end of Arm B to pivot D</title>
+        </param>
+        <param>
+            <name>Bp</name>
+            <min>0</min>
+            <max>360</max>
+            <default>0</default>
+            <title>Phase angle of Arm B</title>
+        </param>
+        <param>
+            <name>AB</name>
+            <min>0</min>
+            <max>100</max>
+            <default>15</default>
+            <title>Distance between A and B.</title>
+        </param>
+        <param>
+            <name>CR</name>
+            <min>0</min>
+            <max>100</max>
+            <default>5</default>
+            <title>Length of Pen Arm.  Centre lies at the junction of the two links at D</title>
+        </param>
+        <param>
+            <name>Cr</name>
+            <min>-100</min>
+            <max>100</max>
+            <default>0</default>
+            <title>Rate of rotation of Pen Arm</title>
+        </param>
+        <param>
+            <name>Cp</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>Phase angle of Pen Arm</title>
+        </param>
+        <param>
+            <name>check</name>
+            <min>0</min>
+            <max>1</max>
+            <default>0</default>
+            <title>check for validity</title>
+        </param>
+        <param>
+            <name>log</name>
+            <min>0</min>
+            <max>1</max>
+            <default>0</default>
+            <title>log to console</title>
+        </param>
+        <function>
+            function fn(t,p,scale) {  
+            if (p[12]==1 ) {   
+               if(!triangle (p[2],p[6],p[8]+p[0]+p[4]))
+               {alert("invalid - max : "+p[2] + "," + p[6] + ","+( p[8]+p[0]+p[4])); throw("mechanism impossible")}
+               if(!triangle (p[2],p[6],p[8]-p[0]-p[4]))
+               {alert("invalid- min : "+p[2] + "," + p[6] + "," + (p[8]-p[0]-p[4])); throw("mechanism impossible")}
+            }
+            d=p[8]; 
+            Ax=p[0]*cos(t*p[1]+p[3]);
+            Ay=p[0]*sin(t*p[1]+p[3]);
+            Bx=p[4]*cos(t*p[5]+p[7]);
+            By=p[4]*sin(t*p[5]+p[7]);
+            dx=d-Ax+Bx;
+            dy=By-Ay;
+            AB=Math.atan2(dy,dx)*180/Math.PI;
+            
+            Cl=Math.sqrt(dx*dx+dy*dy);
+            // three sides of a triangle :  AD p[2],BD p[6] and Cl
+            if (p[12]==1) 
+               if(!triangle(Cl,p[2],p[6])) 
+               {alert("not a triangle: " + Cl +" "+p[2]+" "+p[6]); throw("not a triangle");}
+        
+            Aa=Math.acos((Cl*Cl +p[2]*p[2] -p[6]*p[6]) / (2*Cl*p[6])) *180/Math.PI;
+            
+            AC=(Aa+AB);
+            Px=p[2]*cos(AC);
+            Py=p[2]*sin(AC);
+            Cx=p[9]*cos(t*p[10]+p[11]);
+            Cy=p[9]*sin(t*p[10]+p[11]);
+            X= Px+Ax+Cx;
+            Y= Py+Ay+Cy;
+            if (p[13]==1) console.log(t,Ax,Ay,Bx,By,dx,dy,Cl,p[2],p[6],AB,Aa)
+            return [scale*X,scale*Y]
+            }         
+        </function>
+        <maxcycles>1</maxcycles>
+    </preset>
+    <preset>
+        <title>Harmonograph</title>
+        <description>
+            <div>Two pendulums swing independently in xy plane and are connected with arms to a pen which draws on a bed which on a pendulum which is also free to swing in both x and y directions. Kinematics are based on simple harmonic motion with exponential damping.
+            </div>
+            <div>Based on the simulation by <a href="https://andygiger.com/science/harmonograph/index.html">Andy Giger</a>
+            </div>
+        </description>
+        <scale>20</scale>
+        <stepsize>1</stepsize>
+        <param>
+            <name>Ax</name>
+            <min>0</min>
+            <max>10</max>
+            <default>5</default>
+            <step>0.01</step>
+            <title>Initial X amplitude of Pendulum A </title>
+        </param>
+        <param>
+            <name>Ay</name>
+            <min>0</min>
+            <max>10</max>
+            <default>0</default>
+            <step>0.01</step>
+            <title>Initial Y amplitude of Pendulum A </title>
+        </param>
+        <param>
+            <name>APx</name>
+            <min>0</min>
+            <max>180</max>
+            <default>90</default>
+            <title>X phase angle of Pendulum A </title>
+        </param>
+        <param>
+            <name>APy</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>Y phase angle of Pendulum A </title>
+        </param>
+        <param>
+            <name>AF</name>
+            <min>0</min>
+            <max>5</max>
+            <default>1</default>
+            <step>0.01</step>
+            <title>frequency of Pendulum A </title>
+        </param>
+        <param>
+            <name>AD</name>
+            <min>0</min>
+            <max>100</max>
+            <default>50</default>
+            <step>1</step>
+            <title>damping half-life of Pendulum A </title>
+        </param>
+        <param>
+            <name>Bx</name>
+            <min>0</min>
+            <max>10</max>
+            <default>0</default>
+            <step>0.01</step>
+            <title>Initial X amplitude of Pendulum B </title>
+        </param>
+        <param>
+            <name>By</name>
+            <min>0</min>
+            <max>10</max>
+            <default>5</default>
+            <step>0.01</step>
+            <title>Initial Y amplitude of Pendulum B </title>
+        </param>
+        <param>
+            <name>BPx</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>X phase angle of Pendulum B </title>
+        </param>
+        <param>
+            <name>BPy</name>
+            <min>0</min>
+            <max>180</max>
+            <default>90</default>
+            <title>Y phase angle of Pendulum B </title>
+        </param>
+        <param>
+            <name>BF</name>
+            <min>0</min>
+            <max>5</max>
+            <default>1</default>
+            <step>0.01</step>
+            <title>frequency of Pendulum B </title>
+        </param>
+        <param>
+            <name>BD</name>
+            <min>0</min>
+            <max>100</max>
+            <default>50</default>
+            <step>1</step>
+            <title>damping half-life of Pendulum B </title>
+        </param>
+        <param>
+            <name>Cx</name>
+            <min>0</min>
+            <max>10</max>
+            <default>0</default>
+            <step>0.01</step>
+            <title>Initial X amplitude of Pendulum C </title>
+        </param>
+        <param>
+            <name>Cy</name>
+            <min>0</min>
+            <max>10</max>
+            <default>5</default>
+            <step>0.01</step>
+            <title>Initial Y amplitude of Pendulum C </title>
+        </param>
+        <param>
+            <name>CPx</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>X phase angle of Pendulum C </title>
+        </param>
+        <param>
+            <name>CPy</name>
+            <min>0</min>
+            <max>180</max>
+            <default>0</default>
+            <title>Y phase angle of Pendulum C </title>
+        </param>
+        <param>
+            <name>CF</name>
+            <min>0</min>
+            <max>5</max>
+            <default>1</default>
+            <step>0.01</step>
+            <title>frequency of Pendulum C</title>
+        </param>
+        <param>
+            <name>CD</name>
+            <min>0</min>
+            <max>100</max>
+            <default>50</default>
+            <step>1</step>
+            <title>damping half-life of Pendulum C </title>
+        </param>
+        <param>
+            <name>log</name>
+            <min>0</min>
+            <max>1</max>
+            <default>0</default>
+            <title>log to console</title>
+        </param>
+        <function>
+            function fn(t,p,scale) {  
+            //  3 pendulums A=1,B=2,C=3
+            //  x amplitude,y amplitude, phase x, phase y, frequency f, damping 
+            //  input  px, px, degrees, degrees, cycles/second, s?
+            
+            var a1x =p[0];
+            var a1y =p[1];
+            var p1x =p[2];
+            var p1y =p[3];
+            var f1  =p[4];
+            var td1 =p[5];
+          
+            var a2x =p[6];
+            var a2y =p[7];
+            var p2x =p[8];
+            var p2y =p[9];
+            var f2  =p[10];
+            var td2 =p[11];
+            
+            var a3x =p[12];
+            var a3y =p[13];
+            var p3x =p[14];
+            var p3y =p[15];
+            var f3  =p[16];
+            var td3 =p[17];
+            
+            //  pendulums arranged in right-angled triangle base R 
+            
+            var R = 100.0;  
+            
+            var Ax = 0.0, Ay = R;   // central position of A pendulum
+            var Bx = R, By = 0.0;   // central position of B pendulum
+            
+            
+            //pendulum position 
+            //  x1,y1 Pendulum A  relative to centre
+            //  x2,y2 Pendulum B  relative to centre
+            //  x3,y3 Pendulum C  relative to centre
+            
+            
+            // x,y damped sinusoidal positions 
+            // same damping on all pendulums
+            var d1 = td1==0 ? 1 : Math.exp(-t /360 / td1) ;
+            var x1 = a1x * d1 * sin(f1 * t + p1x);
+            var y1 = a1y * d1 * sin(f1 * t + p1y);
+            
+            var d2 =  d1;   // Math.exp(-t /360 / td2) ;	
+            var x2 = a2x * d2 * sin(f2 * t + p2x);
+            var y2 = a2y * d2 * sin(f2 * t + p2y);
+            
+            var d3 = d1;    // Math.exp(-t /360 / td3) 
+            var x3 = a3x * d3 * sin(f3 * t + p3x);
+            var y3 = a3y * d3 * sin(f3 * t + p3y);
+            
+            // Cx,Cy position of Pendulum A relative to origin	
+            var Cx = x1 + Ax;  var Cy = y1 + Ay;  
+            // Dx,Dy position of Pendulum B relative to origin	
+            var Dx = x2 + Bx ; var Dy = y2 + By;
+            // D relative to C
+            var DCx = Cx - Dx; var DCy = Cy - Dy;
+            // distance CD
+            var CD = Math.sqrt(Math.pow(DCx,2) + Math.pow(DCy,2));
+            
+            // P is at the end of two links C-P, and D-P each of length L
+            var L=R;
+            
+            // angle between C and P	
+            var gamma = r2d(Math.acos( CD / (2 * L) ) + Math.acos( DCy / CD )) ;
+            
+            var Px = Cx - L * sin(gamma) ;
+            var Py = Cy - L * cos(gamma);
+            
+            // point relative to pendulum C  ie on the paper surface relative to its centre	
+            var x = Px - x3;  
+            var y = Py - y3;
+
+            if (p[18]==1) 
+              if (t % 36 == 0)
+                console.log(t,x1,y1,x2,y2,x3,y3,Px,Py,x,y,d1,gamma);
+            return [scale*x, scale*y];
+            }         
+        </function>
+        <maxcycles>50</maxcycles>
+    </preset>
+</presets>
